@@ -68,7 +68,8 @@ publishing {
             version project.version
 
             artifact sourcesJar
-            artifact javadocJar
+            // FIXME: does no longer work (most probably gradle 8 related)
+//            artifact javadocJar
 
             pom.withXml {
                 asNode().children().last() + {
