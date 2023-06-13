@@ -8,6 +8,13 @@ syntax for GraphQL schema definition.
 
 If you would like to use a tool that creates a graphql spring boot server using graphql-java-annotations, you can view the [graphql-spring-annotations](https://github.com/yarinvak/graphql-spring-annotations) library.
 
+## Forked to ...
+
+- Upgrade graphql java (20.3)
+- Update build tools and dependencies in general
+- Fix `id` to allow to be of any type, since this is the GraphQL specsq
+
+Yet this package is not published anywhere. Let us know if that is interesting to anybody.
 
 ## Table Of Contents
 - [Getting Started](#getting-started)
@@ -37,7 +44,7 @@ If you would like to use a tool that creates a graphql spring boot server using 
 
 ```groovy
 dependencies {
-  compile "io.github.graphql-java:graphql-java-annotations:9.1"
+  compile "io.github.graphql-java:graphql-java-annotations:20.3.0-kw1"
 }
 ```
 
@@ -47,7 +54,7 @@ dependencies {
 <dependency>
     <groupId>io.github.graphql-java</groupId>
     <artifactId>graphql-java-annotations</artifactId>
-    <version>9.1</version>
+    <version>20.3.0-kw1</version>
 </dependency>
 ```
 
