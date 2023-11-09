@@ -79,13 +79,13 @@ publishing {
                     resolveStrategy = Closure.DELEGATE_FIRST
                     name 'graphql-java-annotations'
                     description 'Annotations-based syntax for GraphQL schema definition'
-                    url 'https://github.com/graphql-java/graphql-java-annotations'
-                    inceptionYear '2016'
+                    url 'https://github.com/KontextWork/graphql-java-annotations'
+                    inceptionYear '2022'
 
                     scm {
-                        url 'https://github.com/graphql-java/graphql-java-annotations'
-                        connection 'scm:https://yrashk@github.com/graphql-java/graphql-java-annotations.git'
-                        developerConnection 'scm:git://github.com/graphql-java/graphql-java-annotations.git'
+                        url 'https://github.com/KontextWork/graphql-java-annotations'
+                        connection 'scm:https://github.com/KontextWork/graphql-java-annotations.git'
+                        developerConnection 'scm:git://github.com/KontextWork/graphql-java-annotations.git'
                     }
 
                     licenses {
@@ -98,32 +98,14 @@ publishing {
 
                     developers {
                         developer {
-                            id 'yrashk'
-                            name 'Yurii Rashkovskii'
-                            email 'yrashk@gmail.com'
+                            id 'tm'
+                            name 'Thomas M.'
+                            email 'tm@donotbugme.com'
                         }
                         developer {
-                            id 'apottere'
-                            name 'Andrew Potter'
-                            email 'Andrew.Potter@coxautoinc.com'
-                        }
-                        developer {
-                            id 'bbakerman'
-                            name 'Brad Baker'
-                            email 'bbakerman@gmail.com'
-                        }
-                        developer {
-                            id 'yarinvak'
-                            name 'Yarin Vaknin'
-                            email 'yarinvak@gmail.com'
-                        }
-                        developer {
-                            id 'guy120494'
-                            name 'Guy Smorodinsky'
-                        }
-                        developer {
-                            id 'osher-sade'
-                            name 'Osher Sade'
+                            id 'em'
+                            name 'Eugen Mayer'
+                            email 'em@donotbugme.com'
                         }
                     }
                 }
