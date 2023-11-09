@@ -120,7 +120,7 @@ publishing {
             def releasesRepoUrl = "https://nexus.kw.kontextwork.com/repository/kw-maven-release"
             def snapshotsRepoUrl = "https://nexus.kw.kontextwork.com/repository/kw-maven-snapshots"
             url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
-            if(project.hasProperty("ourNexusAuthorUser") || ext.ourNexusAuthorUser != "") {
+            if(project.hasProperty("ourNexusAuthorUser")) {
                 credentials(PasswordCredentials) {
                     username "$ourNexusAuthorUser"
                     password "$ourNexusAuthorPassword"
