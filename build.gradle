@@ -113,8 +113,6 @@ publishing {
     }
 }
 
-def ourNexusAuthorUser = project.findProperty('ourNexusAuthorUser') ?: ''
-def ourNexusAuthorPassword = project.findProperty('ourNexusAuthorPassword') ?: ''
 
 publishing {
     repositories {
@@ -122,9 +120,11 @@ publishing {
             def releasesRepoUrl = "https://nexus.kw.kontextwork.com/repository/kw-maven-release"
             def snapshotsRepoUrl = "https://nexus.kw.kontextwork.com/repository/kw-maven-snapshots"
             url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
-            credentials(PasswordCredentials) {
-                username "$ourNexusAuthorUser"
-                password "$ourNexusAuthorPassword"
+            if(project.hasProperty("ourNexusAuthorUser") || ext.ourNexusAuthorUser != "") {
+                credentials(PasswordCredentials) {
+                    username "$ourNexusAuthorUser"
+                    password "$ourNexusAuthorPassword"
+                }
             }
         }
     }
