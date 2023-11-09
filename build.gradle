@@ -114,6 +114,9 @@ publishing {
     }
 }
 
+def ourNexusAuthorUser = project.findProperty('ourNexusAuthorUser') ?: ''
+def ourNexusAuthorPassword = project.findProperty('ourNexusAuthorPassword') ?: ''
+
 publishing {
     repositories {
         maven {
