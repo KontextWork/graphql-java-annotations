@@ -15,6 +15,7 @@
 package graphql.annotations.strategies;
 
 import graphql.ExecutionResult;
+import graphql.ExecutionResultImpl;
 import graphql.execution.*;
 import graphql.language.*;
 import graphql.schema.GraphQLEnumType;
@@ -30,7 +31,8 @@ public class EnhancedExecutionStrategy extends AsyncSerialExecutionStrategy {
     private static final String CLIENT_MUTATION_ID = "clientMutationId";
 
     @Override
-    protected CompletableFuture<ExecutionResult> resolveField(ExecutionContext executionContext, ExecutionStrategyParameters parameters) {
+    protected Object  /* CompletableFuture<Object> | Object */ resolveField(ExecutionContext executionContext,
+      ExecutionStrategyParameters parameters) {
         GraphQLObjectType parentType = (GraphQLObjectType) parameters.getExecutionStepInfo().getUnwrappedNonNullType();
         GraphQLFieldDefinition fieldDef = getFieldDef(executionContext.getGraphQLSchema(), parentType, parameters.getField().getSingleField());
         if (fieldDef == null) return null;
@@ -60,8 +62,10 @@ public class EnhancedExecutionStrategy extends AsyncSerialExecutionStrategy {
                     .source(clientMutationId)
                     .build();
 
-
-            return completeValue(executionContext, newParameters).getFieldValue();
+            // TODO: The return type of this function changed completely, previously this has only returned
+            //  completeable future, now it might also return the raw object, no clue how this impacts the
+          //    the rest of the annotations framework
+            return completeValue(executionContext, newParameters).getFieldValueFuture().thenApply(fv -> ExecutionResultImpl.newExecutionResult().data(fv).build());
         } else {
             return super.resolveField(executionContext, parameters);
         }
