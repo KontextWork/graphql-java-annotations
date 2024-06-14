@@ -43,6 +43,7 @@ public class CodeRegistryUtil {
      * @return the data fetcher
      */
     public static DataFetcher getDataFetcher(GraphQLCodeRegistry.Builder codeRegistryBuilder, GraphQLSchemaElement parentElement, GraphQLFieldDefinition fieldDefinition) {
-        return codeRegistryBuilder.getDataFetcher((GraphQLFieldsContainer) parentElement, fieldDefinition);
+        FieldCoordinates coordinates = FieldCoordinates.coordinates((GraphQLFieldsContainer) parentElement, fieldDefinition);
+        return codeRegistryBuilder.getDataFetcher(coordinates, fieldDefinition);
     }
 }

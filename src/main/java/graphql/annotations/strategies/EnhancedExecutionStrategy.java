@@ -42,7 +42,7 @@ public class EnhancedExecutionStrategy extends AsyncSerialExecutionStrategy {
             Object clientMutationId;
             if (argument.getValue() instanceof VariableReference) {
                 VariableReference ref = (VariableReference) argument.getValue();
-                HashMap mutationInputVariables = (HashMap) executionContext.getVariables().get(ref.getName());
+                HashMap mutationInputVariables = (HashMap) executionContext.getCoercedVariables().toMap().get(ref.getName());
                 clientMutationId = mutationInputVariables.get(CLIENT_MUTATION_ID);
             } else {
                 ObjectValue value = (ObjectValue) field.getArguments().get(0).getValue();
